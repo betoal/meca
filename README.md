@@ -1,2 +1,2 @@
-# meca
-Laboratorio Primavera 2019
+# Principios de Mecatrónica
+Laboratorio Primavera 2019 :v
