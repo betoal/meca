@@ -1,8 +1,14 @@
 #include <math.h>
 
-bool isBlinking = false;
-int pinB7 = 13;
+bool on = false;
+int pin13 = 13;
+int pin12 = 12;
+int pin11 = 11;
 int pinButton = 10;
+int analogInput = A0;
+unsigned int seconds = 0;
+bool lights[] = { true, false, false };
+int timer = 3026;
 unsigned int cont = 0;
 
 void setup()
@@ -11,33 +17,106 @@ void setup()
   
   // Sets the ports
   DDRB = DDRB | B10000000;
-  //pinMode(pinB7, OUTPUT);
+  pinMode(pin13, OUTPUT);
+  pinMode(pin12, OUTPUT);
+  pinMode(pin11, OUTPUT);
   pinMode(pinButton, INPUT);
+  pinMode(analogInput, INPUT);
 
+  // Interrupciones
+  /**
+  cli();
+  DDRD &= ~(1 << DDD1);
+  PORTD |= (1 << PORTD1);
+  EICRA |= (1 << ISC10);
+  EIMSK |= (1 << INT1);
+  sei();
+  **/
+  
   // Timer
   cli();
   TCCR1B = 0;
   TCCR1A = 0;
   TCCR1B |= (1 << CS12);
-  TCNT1 = 3036;
+  TCNT1 = timer;
   TIMSK1 |= (1 << TOIE1);
   sei();
 
+  
+  // Timer CTC
+  /*
+  cli();
+  TCCR1B = 0;
+  TCCR1A = 0;
+  TCCR1B |= (1 << WGM12);
+  TCCR1B |= (1 << CS12);
+  OCR1AH = 0x3D;
+  OCR1AL = 0x09;
+  TIMSK1 |= (1 << OCIE1A);
+  sei();
+  */
   // Runs functions
   Serial.println("Determinante");
   Serial.println(getDeterminant(10, 20, 30));
   Serial.println(getDeterminantAssembly(10, 20, 30));
   Serial.println("Promedio");
-  int a[] = {1, 2, 3, 4};
-  Serial.println(getAverage(a, 4));
-  //Serial.println(getAverageAssembly(a, 4));
+  Serial.println(getAverage(2, 4));
+  //Serial.println(getAverageAssembly(2, 4));
   //blink();
+}
+
+ISR(INT1_vect)
+{
+  on = !on;
+  //blinkAssembly(on);
+  photodiode(on);
 }
 
 ISR(TIMER1_OVF_vect)
 {
-  //isBlinking = !isBlinking;
-  //blinkAssembly(isBlinking);
+  //on = !on;
+  //turnLED(on);
+
+  // Restarts
+  TCNT1 = timer;
+  // Changes light
+  // Green
+  if (lights[0])
+  {
+    if (seconds < 15)
+    {
+      // Yellow
+      if (seconds >= 15 - 3)
+        lights[1] = true;
+    }
+    else
+    {
+      // Turns out green and yellow
+      lights[0] = lights[1] = false;
+      lights[2] = true;
+      seconds = 0;
+    }
+  }
+  // Red
+  else if (lights[2])
+  {
+    if (seconds >= 10)
+    {
+      // Turns green and turns off red
+      lights[0] = true;
+      lights[2] = false;
+      seconds = 0;
+    }
+  }
+
+  trafficLights(lights);
+  seconds++;
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+  on = !on;
+  turnLED(on);
 }
 
 /**
@@ -78,44 +157,36 @@ int getDeterminantAssembly(int a, int b, int c)
 /**
  * Gets the average.
  */
-int getAverage(int n[], int size)
+int getAverage(int a, int b)
 {
-  int sum = 0;
-  for (int i = 0; i < size; i++)
-    sum += n[i];
-
-  return sum / size;
+  int sum = a + b;
+  return sum / 2;
 }
 
-int getAverageAssembly(int n[], int size)
+int getAverageAssembly(int a, int b)
 {
-  /**
   int res = 0;
   asm volatile(
-    "MOV r18, 0x00 \n\t" // Sum
-    "MOV r16, %1  \n\t" // size
-    "MOV r17, 0x00 \n\t" // i
+    "MOV r18 0x00 \n\t" // i
+    "MOV r19 0x02 \n\t" // size
     "FOR: \n\t"
-    "ADD r18, %2 \n\t"
-    "ADD %2, 0x2 \n\t"
-    "INC r17 \n\t" // Increments
-    "CPSE r16, r17 \n\t" // Compares
+    "ADD %1, %2 \n\t"
+    "INC r18 \n\t" // i++
+    "CPSE r18, r19 \n\t" // Compares
     "JMP FOR \n\t" // Returns
-
-    "MOV r17, 0x00 \n\t" // i
+    // Divides
+    "MOV r18, 0x00 \n\t" // i
     "FOR2: \n\t"
-    "SUB r18, r16 \n\t" // Substract
+    "SUB %1, r19 \n\t" // Substract
     "BRMI 0x2 \n\t" // Compares
     "INC r17 \n\t" // i++
     "JMP FOR2 \n\t" // Returns
     "MOV %0, r17 \n\t"
     : "=r" (res)
-    : "r" (size), "r" (n)
+    : "r" (a), "r" (b)
   );
   
   return res;
-  **/
-  return 0;
 }
 
 void blinkAssembly(bool bl)
@@ -148,18 +219,18 @@ void blink()
 {
   while(true)
   {
-    digitalWrite(pinB7, HIGH);
+    digitalWrite(pin13, HIGH);
     delay(250);
-    digitalWrite(pinB7, LOW);
+    digitalWrite(pin13, LOW);
     delay(250);
   }
 }
 
 void button()
 {
+  digitalRead(pinButton); // ???
   if (digitalRead(pinButton))
   {
-    digitalRead(pinButton);
     cont++;
     Serial.print("Counter: ");
     Serial.print(cont);
@@ -167,9 +238,38 @@ void button()
   }
 }
 
+void photodiode()
+{
+  int a = analogRead(analogInput);
+  if (a < 1000)
+  {
+    cont++;
+    Serial.println(cont);
+  }
+}
+
+void photodiode(bool on)
+{
+  if (on) photodiode();
+}
+
+void turnLED(bool on)
+{
+  if (on) digitalWrite(pin13, HIGH);
+  else digitalWrite(pin13, LOW);
+}
+
+void trafficLights(bool lights[])
+{
+  digitalWrite(pin11, lights[0] ? HIGH : LOW);
+  digitalWrite(pin12, lights[1] ? HIGH : LOW);
+  digitalWrite(pin13, lights[2] ? HIGH : LOW);
+}
+
 void loop()
 {
   // put your main code here, to run repeatedly:
   //buttonAssembly();
-  button();
+  //button();
+  //photodiode();
 }
