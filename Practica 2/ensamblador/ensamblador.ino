@@ -61,7 +61,11 @@ void setup()
   Serial.println(getDeterminantAssembly(10, 20, 30));
   Serial.println("Promedio");
   Serial.println(getAverage(2, 4));
+<<<<<<< HEAD
   Serial.println(getAverageAssembly(2, 4));
+=======
+  //Serial.println(getAverageAssembly(2, 4));
+>>>>>>> a02d5100ee5de9e905874bfb0eb7a77b2663f82f
   //blink();
 }
 
@@ -167,18 +171,30 @@ int getAverageAssembly(int a, int b)
 {
   int res = 0;
   asm volatile(
+<<<<<<< HEAD
     "MOV r16, %1 \n\t" // a
     "MOV r17, %2 \n\t" // b
     "MOV r18, 0x00 \n\t" // i
     "MOV r19, 0x02 \n\t" // size
     "FOR: ADD r16, r17 \n\t"
+=======
+    "MOV r18 0x00 \n\t" // i
+    "MOV r19 0x02 \n\t" // size
+    "FOR: \n\t"
+    "ADD %1, %2 \n\t"
+>>>>>>> a02d5100ee5de9e905874bfb0eb7a77b2663f82f
     "INC r18 \n\t" // i++
     "CPSE r18, r19 \n\t" // Compares
     "JMP FOR \n\t" // Returns
     // Divides
     "MOV r18, 0x00 \n\t" // i
+<<<<<<< HEAD
     "FOR2: SUB r16, r19 \n\t" // Substract
     "INC r18 \n\t" // i++
+=======
+    "FOR2: \n\t"
+    "SUB %1, r19 \n\t" // Substract
+>>>>>>> a02d5100ee5de9e905874bfb0eb7a77b2663f82f
     "BRMI 0x2 \n\t" // Compares
     "JMP FOR2 \n\t" // Returns
     "MOV %0, r18 \n\t"
