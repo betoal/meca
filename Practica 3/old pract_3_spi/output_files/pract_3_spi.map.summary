@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Mar  6 13:42:11 2019
+Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+Revision Name : pract_3_spi
+Top-level Entity Name : pract_3_spi
+Family : Cyclone IV E
+Total logic elements : 277
+    Total combinational functions : 240
+    Dedicated logic registers : 176
+Total registers : 176
+Total pins : 35
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

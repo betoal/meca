@@ -1,0 +1,38 @@
+
+State Machine - |pract_3_spi|state
+Name state.READING state.RD_PARAMS_SEND state.WRITING state.WR_PARAMS_SEND state.IDLE state.INIT 
+state.INIT 0 0 0 0 0 0 
+state.IDLE 0 0 0 0 1 1 
+state.WR_PARAMS_SEND 0 0 0 1 0 1 
+state.WRITING 0 0 1 0 0 1 
+state.RD_PARAMS_SEND 0 1 0 0 0 1 
+state.READING 1 0 0 0 0 1 
+
+State Machine - |pract_3_spi|accel_rw:accel_rw_inst1|state
+Name state.TX state.RX state.RD_ST state.WR_ST state.IDLE state.INIT 
+state.INIT 0 0 0 0 0 0 
+state.IDLE 0 0 0 0 1 1 
+state.WR_ST 0 0 0 1 0 1 
+state.RD_ST 0 0 1 0 0 1 
+state.RX 0 1 0 0 0 1 
+state.TX 1 0 0 0 0 1 
+
+State Machine - |pract_3_spi|init_accel:init_accel_inst1|state
+Name state.WR_WINDOW state.WR_LATENT state.WR_TAP_AXES state.WR_DUR state.WR_THRESH_TAP state.WR_POWER_CONTROL state.WR_INT_MAP state.WR_INT_ENABLE state.WR_BW_RATE state.WR_TIME_FF state.WR_THRESH_FF state.WR_ACT_INACT_CTL state.WR_TIME_INACT state.WR_THRESH_INACT state.WR_THRESH_ACT state.IDLE state.INIT 
+state.INIT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.WR_THRESH_ACT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.WR_THRESH_INACT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.WR_TIME_INACT 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.WR_ACT_INACT_CTL 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.WR_THRESH_FF 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.WR_TIME_FF 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.WR_BW_RATE 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.WR_INT_ENABLE 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.WR_INT_MAP 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.WR_POWER_CONTROL 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.WR_THRESH_TAP 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.WR_DUR 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.WR_TAP_AXES 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.WR_LATENT 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.WR_WINDOW 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

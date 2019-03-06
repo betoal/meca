@@ -205,7 +205,7 @@ cmd_to_reg <= cmd_buffer;
 		  WHEN WR_POWER_CONTROL =>
 			
 				cmd_buffer <= POWER_CONTROL;
-				rx_buffer <= x"00";
+				rx_buffer <= x"08";
 				busy_buffer <= '0';
 		  
 				if (next_wr = '1') then 

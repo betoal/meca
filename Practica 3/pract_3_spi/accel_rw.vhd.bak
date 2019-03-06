@@ -15,8 +15,8 @@ entity accel_rw is
 		read_signal : in std_logic;
 		write_signal : in std_logic;
 		CMD_IN : in std_logic_vector(7 downto 0);
-		TX_IN : in std_logic_vector(15 downto 0);
-		RX_out : out std_logic_vector(15 downto 0);
+		TX_IN : in std_logic_vector(7 downto 0);
+		RX_out : out std_logic_vector(7 downto 0);
 		busy_out : out std_logic
 	);
 end accel_rw ;
@@ -63,8 +63,8 @@ TYPE   machine IS(INIT, IDLE, WR_ST, RD_ST, RX, TX);
 signal state 			: machine;
 signal rw_buffer	 	: std_logic;
 signal cmd_buffer 		: std_logic_vector(7 downto 0);
-signal tx_data_buffer 	: std_logic_vector(15 downto 0);
-signal rx_data_buffer 	: std_logic_vector(15 downto 0);
+--signal tx_data_buffer 	: std_logic_vector(15 downto 0);
+--signal rx_data_buffer 	: std_logic_vector(15 downto 0);
 signal busy 			: std_logic;
 signal enable 			: std_logic;
 signal cont 			: integer := 0;
@@ -82,7 +82,7 @@ begin
 	GENERIC map(
     slaves    => 1,  --number of spi slaves
     cmd_width => 8,  --command bus width
-    d_width   => 16
+    d_width   => 8
 	 )
 	port map 
 	(
@@ -101,6 +101,23 @@ begin
 		sdio    => ,			             --SPI SDIO
 		busy    => busy,			     --busy / data ready signal
 		rx_data => RX_out			     --data received
+
+
+		clock   => CLK,                              --system clock
+		reset_n => reset_n,                          --asynchronous reset
+		enable  => enable ,                          --initiate transaction
+		cpol    => '1',                                 --spi clock polarity
+		cpha    => '1',                                 --spi clock phase
+		clk_div => 1,                                 --system clock cycles per 1/2 period of sclk
+		addr    => 1,                                 --address of slave
+		rw      => rw_buffer	,                    --'0' for read, '1' for write
+		tx_cmd  => cmd_to_spi, 			     --command to transmit
+		tx_data => TX_IN,			     --data to transmit
+		sclk    => I2C_SCLK,				     --SPI SCLK
+		ss_n(0) => G_SENSOR_CS_N,				     --Sensor SSN
+		sdio    => I2C_SDAT,			             --SPI SDIO
+		busy    => busy,			     --busy / data ready signal
+		rx_data => RX_out			     --data received
 	);
 	
 	cmd_to_spi <= (NOT(rw_buffer) & "0000000") OR ('0' & CMD_IN(6 downto 0));
@@ -116,7 +133,7 @@ begin
 
         	WHEN INIT =>
 				rw_buffer <= '0';
-				tx_data_buffer <= x"0000";
+				--tx_data_buffer <= x"0000";
 				enable <= '0';
 				busy_out <= '0';
 				state <= IDLE;

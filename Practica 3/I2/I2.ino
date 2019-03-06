@@ -1,11 +1,9 @@
 #include "Wire.h"
-#include <SoftwareSerial.h>
 
 int button1 = 13;
 int button2 = 12;
 int beeInput = 11;
 int beeOutput = 10;
-SoftwareSerial xbee_serial(beeInput, beeOutput);
 int slave = 50;
 
 void setup() {
