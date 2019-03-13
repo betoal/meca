@@ -75,7 +75,7 @@ cmd_to_reg <= cmd_buffer;
 				
 		  WHEN WR_THRESH_ACT =>
 				cmd_buffer <= THRESH_ACT;
-				rx_buffer <= x"00";
+				rx_buffer <= x"24";
 				busy_buffer <= '1';
 
 				if (next_wr = '1') then 
@@ -85,7 +85,7 @@ cmd_to_reg <= cmd_buffer;
 		  
 		  WHEN WR_THRESH_INACT =>
 				cmd_buffer <= THRESH_INACT ;
-				rx_buffer <= x"00";
+				rx_buffer <= x"25";
 				busy_buffer <= '1';
 		  
 				if (next_wr = '1') then 
@@ -95,7 +95,7 @@ cmd_to_reg <= cmd_buffer;
 		  WHEN WR_TIME_INACT =>
 			
 				cmd_buffer <= TIME_INACT;
-				rx_buffer <= x"00";
+				rx_buffer <= x"26";
 				busy_buffer <= '1';
 		  
 				if (next_wr = '1') then 
@@ -104,7 +104,7 @@ cmd_to_reg <= cmd_buffer;
 		  
 		  WHEN WR_ACT_INACT_CTL =>
 				cmd_buffer <= ACT_INACT_CTL;
-				rx_buffer <= x"00";
+				rx_buffer <= x"27";
 				busy_buffer <= '1';
 		  
 				if (next_wr = '1') then 
@@ -113,7 +113,7 @@ cmd_to_reg <= cmd_buffer;
 		  
 		  WHEN WR_THRESH_FF =>
 				cmd_buffer <= THRESH_FF;
-				rx_buffer <= x"00";
+				rx_buffer <= x"28";
 				busy_buffer <= '1';
 		  
 				if (next_wr = '1') then 
@@ -123,7 +123,7 @@ cmd_to_reg <= cmd_buffer;
 		  WHEN WR_TIME_FF =>
 			
 				cmd_buffer <= TIME_FF;
-				rx_buffer <= x"00";
+				rx_buffer <= x"29";
 				busy_buffer <= '1';
 		  
 				if (next_wr = '1') then 
@@ -132,7 +132,7 @@ cmd_to_reg <= cmd_buffer;
 		  
 		  WHEN WR_BW_RATE =>
 				cmd_buffer <= BW_RATE;
-				rx_buffer <= x"00";
+				rx_buffer <= x"2C";
 				busy_buffer <= '1';
 		  
 				if (next_wr = '1') then 
@@ -141,7 +141,7 @@ cmd_to_reg <= cmd_buffer;
 		  
 		  WHEN WR_INT_ENABLE => 
 				cmd_buffer <= INT_ENABLE;
-				rx_buffer <= x"00";
+				rx_buffer <= x"2E";
 				busy_buffer <= '1';
 		  
 				if (next_wr = '1') then 
@@ -150,7 +150,7 @@ cmd_to_reg <= cmd_buffer;
 		  
 		  WHEN WR_INT_MAP =>
 				cmd_buffer <= INT_MAP;
-				rx_buffer <= x"00";
+				rx_buffer <= x"2F";
 				busy_buffer <= '1';
 		  
 				if (next_wr = '1') then 
@@ -205,7 +205,7 @@ cmd_to_reg <= cmd_buffer;
 		  WHEN WR_POWER_CONTROL =>
 			
 				cmd_buffer <= POWER_CONTROL;
-				rx_buffer <= x"08";
+				rx_buffer <= x"2D";
 				busy_buffer <= '0';
 		  
 				if (next_wr = '1') then 

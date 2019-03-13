@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pract_3_spi
-Wed Mar  6 14:05:52 2019
+Wed Mar 13 12:31:01 2019
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -52,15 +52,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar  6 14:05:52 2019       ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 13 12:31:01 2019       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; pract_3_spi                                 ;
 ; Top-level Entity Name              ; pract_3_spi                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 249                                         ;
-;     Total combinational functions  ; 220                                         ;
-;     Dedicated logic registers      ; 144                                         ;
-; Total registers                    ; 144                                         ;
+; Total logic elements               ; 260                                         ;
+;     Total combinational functions  ; 231                                         ;
+;     Dedicated logic registers      ; 152                                         ;
+; Total registers                    ; 152                                         ;
 ; Total pins                         ; 35                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -189,20 +189,20 @@ agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 249       ;
+; Estimated Total logic elements              ; 260       ;
 ;                                             ;           ;
-; Total combinational functions               ; 220       ;
+; Total combinational functions               ; 231       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 71        ;
-;     -- 3 input functions                    ; 34        ;
+;     -- 4 input functions                    ; 75        ;
+;     -- 3 input functions                    ; 41        ;
 ;     -- <=2 input functions                  ; 115       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 169       ;
+;     -- normal mode                          ; 180       ;
 ;     -- arithmetic mode                      ; 51        ;
 ;                                             ;           ;
-; Total registers                             ; 144       ;
-;     -- Dedicated logic registers            ; 144       ;
+; Total registers                             ; 152       ;
+;     -- Dedicated logic registers            ; 152       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 35        ;
@@ -210,9 +210,9 @@ agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; CLK~input ;
-; Maximum fan-out                             ; 144       ;
-; Total fan-out                               ; 1151      ;
-; Average fan-out                             ; 2.65      ;
+; Maximum fan-out                             ; 152       ;
+; Total fan-out                               ; 1213      ;
+; Average fan-out                             ; 2.67      ;
 +---------------------------------------------+-----------+
 
 
@@ -221,10 +221,10 @@ agreement for further details.
 +---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                            ; Entity Name       ; Library Name ;
 +---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+-------------------+--------------+
-; |pract_3_spi                                      ; 220 (62)            ; 144 (40)                  ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |pract_3_spi                                                                   ; pract_3_spi       ; work         ;
+; |pract_3_spi                                      ; 231 (66)            ; 152 (44)                  ; 0           ; 0            ; 0       ; 0         ; 35   ; 0            ; |pract_3_spi                                                                   ; pract_3_spi       ; work         ;
 ;    |accel_rw:accel_rw_inst1|                      ; 144 (16)            ; 80 (9)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pract_3_spi|accel_rw:accel_rw_inst1                                           ; accel_rw          ; work         ;
 ;       |spi_3_wire_master:spi_3_wire_master_inst1| ; 128 (128)           ; 71 (71)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pract_3_spi|accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1 ; spi_3_wire_master ; work         ;
-;    |init_accel:init_accel_inst1|                  ; 14 (14)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pract_3_spi|init_accel:init_accel_inst1                                       ; init_accel        ; work         ;
+;    |init_accel:init_accel_inst1|                  ; 21 (21)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pract_3_spi|init_accel:init_accel_inst1                                       ; init_accel        ; work         ;
 +---------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -293,16 +293,16 @@ Encoding Type:  One-Hot
 ; init_accel:init_accel_inst1|cmd_buffer[6]                                           ; Stuck at GND due to stuck port data_in                                                      ;
 ; accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|clk_ratio[1..30]  ; Stuck at GND due to stuck port data_in                                                      ;
 ; accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|clk_ratio[0]      ; Stuck at VCC due to stuck port data_in                                                      ;
-; init_accel:init_accel_inst1|rx_buffer[0..2,4..7]                                    ; Stuck at GND due to stuck port data_in                                                      ;
+; init_accel:init_accel_inst1|rx_buffer[4,6,7]                                        ; Stuck at GND due to stuck port data_in                                                      ;
 ; accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|last_bit_rx[0..4] ; Stuck at GND due to stuck port data_in                                                      ;
-; tx_data_buffer[1,2,4..7]                                                            ; Merged with tx_data_buffer[0]                                                               ;
-; tx_data_buffer[0]                                                                   ; Stuck at GND due to stuck port data_in                                                      ;
+; accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|slave[0]          ; Merged with accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|clk_ratio[31] ;
+; tx_data_buffer[6,7]                                                                 ; Merged with tx_data_buffer[4]                                                               ;
+; tx_data_buffer[4]                                                                   ; Stuck at GND due to stuck port data_in                                                      ;
 ; cmd_buffer[6]                                                                       ; Stuck at GND due to stuck port data_in                                                      ;
 ; accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|last_bit_rx[5]    ; Merged with accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|clk_ratio[31] ;
-; accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|slave[0]          ; Merged with accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|clk_ratio[31] ;
 ; init_accel:init_accel_inst1|state.INIT                                              ; Merged with accel_rw:accel_rw_inst1|state.INIT                                              ;
 ; state.INIT                                                                          ; Merged with accel_rw:accel_rw_inst1|state.INIT                                              ;
-; Total Number of Removed Registers = 56                                              ;                                                                                             ;
+; Total Number of Removed Registers = 48                                              ;                                                                                             ;
 +-------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+
 
 
@@ -313,7 +313,7 @@ Encoding Type:  One-Hot
 +-------------------------------------------+---------------------------+----------------------------------------+
 ; init_accel:init_accel_inst1|cmd_buffer[6] ; Stuck at GND              ; cmd_buffer[6]                          ;
 ;                                           ; due to stuck port data_in ;                                        ;
-; init_accel:init_accel_inst1|rx_buffer[0]  ; Stuck at GND              ; tx_data_buffer[0]                      ;
+; init_accel:init_accel_inst1|rx_buffer[4]  ; Stuck at GND              ; tx_data_buffer[4]                      ;
 ;                                           ; due to stuck port data_in ;                                        ;
 +-------------------------------------------+---------------------------+----------------------------------------+
 
@@ -323,12 +323,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 144   ;
-; Number of registers using Synchronous Clear  ; 31    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 152   ;
+; Number of registers using Synchronous Clear  ; 30    ;
+; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 47    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 127   ;
+; Number of registers using Clock Enable       ; 135   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -355,10 +355,11 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------+
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |pract_3_spi|accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|clk_toggles[2] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |pract_3_spi|accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|cmd_buffer[7]  ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |pract_3_spi|accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|count[17]      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |pract_3_spi|cmd_buffer[5]                                                                    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |pract_3_spi|accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|cmd_buffer[6]  ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |pract_3_spi|accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|count[14]      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |pract_3_spi|cmd_buffer[4]                                                                    ;
 ; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |pract_3_spi|accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|d_buffer[1]    ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |pract_3_spi|tx_data_buffer[5]                                                                ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |pract_3_spi|accel_rw:accel_rw_inst1|spi_3_wire_master:spi_3_wire_master_inst1|count[0]       ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |pract_3_spi|Selector29                                                                       ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |pract_3_spi|accel_rw:accel_rw_inst1|Selector2                                                ;
@@ -388,8 +389,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cpha           ; Input ; Info     ; Stuck at VCC                                              ;
 ; clk_div[31..1] ; Input ; Info     ; Stuck at GND                                              ;
 ; clk_div[0]     ; Input ; Info     ; Stuck at VCC                                              ;
-; addr[31..1]    ; Input ; Info     ; Stuck at GND                                              ;
-; addr[0]        ; Input ; Info     ; Stuck at VCC                                              ;
+; addr           ; Input ; Info     ; Stuck at GND                                              ;
 +----------------+-------+----------+-----------------------------------------------------------+
 
 
@@ -399,27 +399,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 35                          ;
-; cycloneiii_ff         ; 144                         ;
+; cycloneiii_ff         ; 152                         ;
 ;     CLR               ; 14                          ;
 ;     CLR SCLR          ; 1                           ;
-;     ENA               ; 72                          ;
+;     ENA               ; 80                          ;
 ;     ENA CLR           ; 25                          ;
 ;     ENA CLR SCLR      ; 7                           ;
-;     ENA SCLR          ; 23                          ;
+;     ENA SCLR          ; 22                          ;
+;     ENA SLD           ; 1                           ;
 ;     plain             ; 2                           ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 222                         ;
+; cycloneiii_lcell_comb ; 233                         ;
 ;     arith             ; 51                          ;
 ;         2 data inputs ; 51                          ;
-;     normal            ; 171                         ;
+;     normal            ; 182                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 60                          ;
-;         3 data inputs ; 34                          ;
-;         4 data inputs ; 71                          ;
+;         3 data inputs ; 41                          ;
+;         4 data inputs ; 75                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.10                        ;
-; Average LUT depth     ; 2.86                        ;
+; Average LUT depth     ; 2.81                        ;
 +-----------------------+-----------------------------+
 
 
@@ -438,7 +439,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Mar  6 14:05:34 2019
+    Info: Processing started: Wed Mar 13 12:30:43 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pract_3_spi -c pract_3_spi
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -517,14 +518,14 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "G_SENSOR_INT" File: /home/robotica/temp/meca/Practica 3/pract_3_spi/pract_3_spi.vhd Line: 14
     Warning (15610): No output dependent on input pin "btn_1" File: /home/robotica/temp/meca/Practica 3/pract_3_spi/pract_3_spi.vhd Line: 15
-Info (21057): Implemented 285 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 296 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 26 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 250 logic cells
+    Info (21061): Implemented 261 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
-    Info: Peak virtual memory: 967 megabytes
-    Info: Processing ended: Wed Mar  6 14:05:52 2019
+    Info: Peak virtual memory: 966 megabytes
+    Info: Processing ended: Wed Mar 13 12:31:01 2019
     Info: Elapsed time: 00:00:18
     Info: Total CPU time (on all processors): 00:00:42
 

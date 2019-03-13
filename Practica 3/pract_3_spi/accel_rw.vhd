@@ -92,7 +92,7 @@ begin
 		cpol    => '1',                                 --spi clock polarity
 		cpha    => '1',                                 --spi clock phase
 		clk_div => 1,                                 --system clock cycles per 1/2 period of sclk
-		addr    => 1,                                 --address of slave
+		addr    => 0,                                 --address of slave
 		rw      => rw_buffer	,                    --'0' for read, '1' for write
 		tx_cmd  => cmd_to_spi, 			     --command to transmit
 		tx_data => TX_IN,			     --data to transmit
