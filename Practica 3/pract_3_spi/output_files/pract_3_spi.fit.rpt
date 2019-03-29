@@ -1,5 +1,5 @@
 Fitter report for pract_3_spi
-Wed Mar 13 12:31:10 2019
+Fri Mar 15 11:04:28 2019
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Wed Mar 13 12:31:10 2019       ;
+; Fitter Status                      ; Successful - Fri Mar 15 11:04:28 2019       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; pract_3_spi                                 ;
 ; Top-level Entity Name              ; pract_3_spi                                 ;
@@ -159,7 +159,7 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.4%      ;
+;     Processor 2            ;   1.0%      ;
 +----------------------------+-------------+
 
 
@@ -201,7 +201,7 @@ agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in /home/robotica/temp/meca/Practica 3/pract_3_spi/output_files/pract_3_spi.pin.
+The pin-out file can be found in /home/robotica/meca/Practica 3/pract_3_spi/output_files/pract_3_spi.pin.
 
 
 +----------------------------------------------------------------------+
@@ -1261,7 +1261,7 @@ Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
-Info (176353): Automatically promoted node CLK~input (placed in PIN R8 (CLK15, DIFFCLK_6p)) File: /home/robotica/temp/meca/Practica 3/pract_3_spi/pract_3_spi.vhd Line: 9
+Info (176353): Automatically promoted node CLK~input (placed in PIN R8 (CLK15, DIFFCLK_6p)) File: /home/robotica/meca/Practica 3/pract_3_spi/pract_3_spi.vhd Line: 9
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G18
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -1279,7 +1279,7 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  12 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has 2.5V VCCIO pins. 5 total pin(s) used --  19 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  24 pins available
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1292,23 +1292,23 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.23 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.25 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
-Info (144001): Generated suppressed messages file /home/robotica/temp/meca/Practica 3/pract_3_spi/output_files/pract_3_spi.fit.smsg
+Info (144001): Generated suppressed messages file /home/robotica/meca/Practica 3/pract_3_spi/output_files/pract_3_spi.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 1180 megabytes
-    Info: Processing ended: Wed Mar 13 12:31:11 2019
-    Info: Elapsed time: 00:00:09
+    Info: Peak virtual memory: 1176 megabytes
+    Info: Processing ended: Fri Mar 15 11:04:28 2019
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:11
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in /home/robotica/temp/meca/Practica 3/pract_3_spi/output_files/pract_3_spi.fit.smsg.
+The suppressed messages can be found in /home/robotica/meca/Practica 3/pract_3_spi/output_files/pract_3_spi.fit.smsg.
 
 
